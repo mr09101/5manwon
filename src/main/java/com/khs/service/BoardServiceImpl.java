@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.khs.domain.BoardVO;
@@ -12,7 +13,7 @@ import com.khs.persistence.BoardDAO;
 @Service
 public class BoardServiceImpl implements BoardService {
 
-	@Inject
+	@Autowired
 	private BoardDAO dao;
 
 	@Override
@@ -22,6 +23,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public BoardVO read(Integer bno) throws Exception {
+		dao.updateViewCnt(bno);
 		return dao.read(bno);
 	}
 

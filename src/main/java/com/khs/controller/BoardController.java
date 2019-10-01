@@ -1,7 +1,6 @@
 package com.khs.controller;
 
-import javax.inject.Inject;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +15,7 @@ import com.khs.service.BoardService;
 @RequestMapping(value = "/") // 주소 패턴
 public class BoardController {
 
-	@Inject   // 주입(심부름꾼) 명시
+	@Autowired // 주입(심부름꾼) 명시
 	private BoardService service; // Service 호출을 위한 객체생성
 
 

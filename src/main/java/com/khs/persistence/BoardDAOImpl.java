@@ -5,14 +5,16 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.khs.domain.BoardVO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
+
+	@Autowired
 	
-	@Inject
 	private SqlSession session;
 	private static String namespace = "com.khs.mapper.BoardMapper";
 
@@ -39,6 +41,11 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public List<BoardVO> listAll() throws Exception {
 		return session.selectList(namespace + ".listAll");
+	}
+
+	@Override
+	public void updateViewCnt(Integer bno) throws Exception {
+		session.update(namespace + ".updateViewCnt", bno);		
 	}
 
 }

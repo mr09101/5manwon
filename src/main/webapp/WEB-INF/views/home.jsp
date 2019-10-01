@@ -10,7 +10,7 @@
 
 <button type="submit">CRUD게시판 가기</button>
 <h1>
-	Hello world!  
+	Hello world! Crud Test 
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
